@@ -1,34 +1,25 @@
 package day1;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
+import utils.Utils;
 
-public class CheckIncreasesInDepth
-{
-    private static final URL resource = CheckIncreasesInDepth.class.getClassLoader().getResource("day1/Day1Input.txt");
+public class Day1 {
 
-    public static void main(String[] args) throws URISyntaxException, IOException {
-        String filePath = new File(resource.toURI()).getAbsolutePath();
-        List<Integer> depths = readInDepths(filePath);
+    public static void main(String[] args){
+        List<Integer> depths = parseData("day1", "Day1Input.txt");
         int pt1Increases = part1Counting(depths);
         int pt2Increases = part2Counting(depths);
         System.out.println("Pt1: "+pt1Increases);
         System.out.println("Pt2: "+pt2Increases);
     }
 
-    public static List<Integer> readInDepths(String filePath) throws IOException
-    {
+    public static List<Integer> parseData(String day, String input) {
         List<Integer> depths = new ArrayList<>();
-        Files.lines(Path.of(filePath).toAbsolutePath()).forEach(s->depths.add(Integer.parseInt(s)));
+        Utils.readInLines(day, input).forEach(s->depths.add(Integer.parseInt(s)));
         return depths;
     }
+
     public static int part1Counting(List<Integer> depths){
         int increases = 0;
         int lastDepth = depths.get(0);
@@ -38,6 +29,7 @@ public class CheckIncreasesInDepth
         }
         return increases;
     }
+
     public static int part2Counting(List<Integer> depths){
         int increases = 0;
 
