@@ -7,15 +7,15 @@ import java.util.List;
 
 public class Day2 {
     public static void main(String[] args){
-        List<String> movements = parseData("day2", "Day2Input.txt");
+        List<String> movements = parseData("Day2Input.txt");
         int pt1Product = part1(movements);
         int pt2Product = part2(movements);
         System.out.println("Pt1: "+pt1Product);
         System.out.println("Pt2: "+pt2Product);
     }
 
-    public static List<String> parseData(String day, String input) {
-        return new ArrayList<>(Utils.readInLines(day, input));
+    public static List<String> parseData(String input) {
+        return new ArrayList<>(Utils.readInLines(input));
     }
 
     public static int part1(List<String> movements){

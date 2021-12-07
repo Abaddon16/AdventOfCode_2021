@@ -14,9 +14,9 @@ public class Utils
 {
     public static final ClassLoader resources = Utils.class.getClassLoader();
 
-    public static List<String> readInLines(String day, String input) {
+    public static List<String> readInLines(String fileName) {
         List<String> strings = new ArrayList<>();
-        String filePath = getResourceFilePath(day, input);
+        String filePath = getResourceFilePath(fileName);
         try(Stream<String> s = Files.lines(Path.of(filePath).toAbsolutePath())){
             s.forEach(strings::add);
         }
@@ -26,10 +26,10 @@ public class Utils
         return strings;
     }
 
-    public static String getResourceFilePath(String day, String input){
+    public static String getResourceFilePath(String fileName){
         String filePath = null;
         try{
-            URL inputUrl = resources.getResource(day+"/"+input);
+            URL inputUrl = resources.getResource(fileName);
             if(inputUrl!=null) {
                 filePath = new File(inputUrl.toURI()).getAbsolutePath();
             }

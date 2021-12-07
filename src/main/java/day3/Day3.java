@@ -9,15 +9,15 @@ import java.util.stream.Collectors;
 public class Day3
 {
     public static void main(String[] args){
-        List<String> diagnostics = parseData("day3", "Day3Input.txt");
+        List<String> diagnostics = parseData("Day3Input.txt");
         int pt1Product = part1(diagnostics);
         int pt2Product = part2(diagnostics);
         System.out.println("Pt1: "+pt1Product);
         System.out.println("Pt2: "+pt2Product);
     }
 
-    public static List<String> parseData(String day, String input) {
-        return new ArrayList<>(Utils.readInLines(day, input));
+    public static List<String> parseData(String input) {
+        return new ArrayList<>(Utils.readInLines(input));
     }
 
     public static int part1(List<String> diagnostics){
