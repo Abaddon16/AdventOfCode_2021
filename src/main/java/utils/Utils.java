@@ -18,7 +18,10 @@ public class Utils
         List<String> strings = new ArrayList<>();
         String filePath = getResourceFilePath(fileName);
         try(Stream<String> s = Files.lines(Path.of(filePath).toAbsolutePath())){
-            s.forEach(strings::add);
+            s.forEach(string->{
+                if(!string.equals("")) strings.add(string);
+                
+            });
         }
         catch(IOException e){
             System.out.println("This went poorly");
