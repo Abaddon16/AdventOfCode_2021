@@ -39,14 +39,6 @@ public class Day5{
         int[][] oceanFloor = new int[maxCoords[0]+1][maxCoords[1]+1]; // to account for edge cases, literally
         
         incrementVents(coords, oceanFloor, false);
-//        for(int[] x:oceanFloor){
-//            for(int y:x){
-//                if(y==0) System.out.print(". ");
-//                else System.out.print(y+" ");
-//            }
-//            System.out.println();
-//        }
-//        System.out.println();
         
         return countCrosses(oceanFloor);
     }
